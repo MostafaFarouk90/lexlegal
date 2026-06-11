@@ -5,6 +5,8 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    // Served from https://<user>.github.io/lexlegal/ on GitHub Pages.
+    base: '/lexlegal/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
