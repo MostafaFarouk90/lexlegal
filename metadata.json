@@ -1,0 +1,6 @@
+{
+  "name": "LexInsight Legal",
+  "description": "A professional bilingual website for LexInsight Legal firm, featuring clean and trustworthy design in English and Arabic.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
