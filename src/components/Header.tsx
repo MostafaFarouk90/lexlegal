@@ -34,7 +34,7 @@ export default function Header({ language, onLanguageChange }: HeaderProps) {
           <Logo
             language={language}
             variant="light"
-            heightClass="h-11 sm:h-12"
+            heightClass="h-[55px] sm:h-[60px]"
             className="transition-transform duration-300 group-hover:scale-[1.03]"
           />
         </div>
