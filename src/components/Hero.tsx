@@ -1,6 +1,7 @@
 import { Language } from '../types';
-import { TRANSLATIONS } from '../data';
-import { ShieldCheck, ArrowRight, ArrowLeft, Star, HeartHandshake } from 'lucide-react';
+import { TRANSLATIONS, CONTACT } from '../data';
+import Logo from './Logo';
+import { ShieldCheck, ArrowRight, ArrowLeft, Award, Lock, MapPin } from 'lucide-react';
 
 interface HeroProps {
   language: Language;
@@ -40,11 +41,11 @@ export default function Hero({ language }: HeroProps) {
             {/* Status indicator pill */}
             <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-brand-gold/15 border border-brand-gold/30 rounded-full text-brand-gold text-xs font-semibold uppercase tracking-wider mx-auto lg:mx-0">
               <ShieldCheck className="w-3.5 h-3.5" />
-              <span>{language === 'en' ? 'Bilingual Corporate & Commercial Counsel' : 'استشارات قانونية وتجارية متكاملة ثنائية اللغة'}</span>
+              <span>{language === 'en' ? 'Trusted Legal Counsel in the UAE' : 'استشارات قانونية موثوقة في الإمارات'}</span>
             </div>
 
             {/* Title */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] font-sans">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] font-display">
               <span className="block text-white">
                 {t.tagline.split('.')[0]}.
               </span>
@@ -61,12 +62,12 @@ export default function Hero({ language }: HeroProps) {
             {/* Bullet achievements badges */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs font-bold uppercase tracking-widest text-slate-400">
               <span className="flex items-center gap-1.5">
-                <Star className="w-4 h-4 text-brand-gold fill-brand-gold" />
-                <span>{language === 'en' ? 'Tier 1 Firm Rank' : 'تصنيف الفئة الأولى'}</span>
+                <Award className="w-4 h-4 text-brand-gold" />
+                <span>{language === 'en' ? '15+ Years of Experience' : 'خبرة تتجاوز 15 عاماً'}</span>
               </span>
               <span className="flex items-center gap-1.5">
-                <HeartHandshake className="w-4 h-4 text-brand-gold" />
-                <span>{language === 'en' ? 'Attorney-Client Privilege Guarantee' : 'الحصانة المهنية الكاملة'}</span>
+                <Lock className="w-4 h-4 text-brand-gold" />
+                <span>{language === 'en' ? 'Strict Confidentiality' : 'سرية تامة'}</span>
               </span>
             </div>
 
@@ -102,29 +103,28 @@ export default function Hero({ language }: HeroProps) {
               <div className="absolute inset-0 bg-gradient-to-tr from-brand-navy to-brand-gold/20 rounded-3xl -rotate-6 border border-brand-gold/20 shadow-2xl" />
               
               <div className="absolute inset-0 bg-slate-900 rounded-3xl border border-brand-gold/30 p-8 flex flex-col justify-between shadow-2xl overflow-hidden">
-                {/* Micro tech vector background */}
+                {/* Soft brand glow */}
                 <div className="absolute right-0 top-0 w-32 h-32 bg-brand-gold/10 rounded-full blur-2xl" />
-                
-                <div id="hero-graphic-badge" className="flex items-center justify-between border-b border-white/15 pb-4">
-                  <span className="font-mono text-xs tracking-widest text-brand-gold font-bold uppercase">LEXINSIGHT PROTOCOL</span>
-                  <span className="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-ping" />
+
+                <div className="flex items-center justify-center border-b border-white/10 pb-6">
+                  <Logo language={language} variant="light" heightClass="h-24" />
                 </div>
-                
-                <div className="space-y-6">
+
+                <div className="space-y-4">
                   <div className="p-4 bg-white/5 border border-white/10 rounded-2xl">
-                    <p className="text-[11px] font-mono text-brand-gold-dark font-bold uppercase mb-1">{language === 'en' ? 'CORPORATE & COMMERCIAL' : 'الشركات والأعمال التجارية'}</p>
-                    <p className="text-sm font-semibold text-slate-200">{language === 'en' ? 'Structuring strategic commercial frameworks' : 'هيكلة الصفقات والأطر التجارية والشركات'}</p>
+                    <p className="text-[11px] font-bold uppercase tracking-wider text-brand-gold mb-1">{language === 'en' ? 'Litigation & Advocacy' : 'التقاضي والترافع'}</p>
+                    <p className="text-sm font-medium text-slate-300">{language === 'en' ? 'Representation before all UAE courts and arbitration centers' : 'التمثيل أمام جميع محاكم الدولة ومراكز التحكيم'}</p>
                   </div>
-                  
-                  <div className="p-4 bg-white/5 border border-white/15 rounded-2xl">
-                    <p className="text-[11px] font-mono text-brand-gold-dark font-bold uppercase mb-1">{language === 'en' ? 'INTELLECTUAL PROPERTY & COMPLIANCE' : 'حماية الملكية الفكرية والامتثال'}</p>
-                    <p className="text-sm font-semibold text-slate-200">{language === 'en' ? 'Safeguarding technology and proprietary portfolios' : 'تأمين الابتكارات وبراءات الاختراع والملكيات الفكرية'}</p>
+
+                  <div className="p-4 bg-white/5 border border-white/10 rounded-2xl">
+                    <p className="text-[11px] font-bold uppercase tracking-wider text-brand-gold mb-1">{language === 'en' ? 'Legal Consultations' : 'الاستشارات القانونية'}</p>
+                    <p className="text-sm font-medium text-slate-300">{language === 'en' ? 'Clear, modern advice backed by deep expertise' : 'مشورة واضحة وعصرية مدعومة بخبرة عميقة'}</p>
                   </div>
                 </div>
 
-                <div className="border-t border-white/10 pt-4 flex items-center justify-between text-slate-400 text-xs">
-                  <span>SECURE CHANNEL</span>
-                  <span className="font-mono text-[10px] text-brand-gold/85">AES_256_E2EE</span>
+                <div className="border-t border-white/10 pt-4 flex items-center justify-center gap-2 text-slate-400 text-xs">
+                  <MapPin className="w-3.5 h-3.5 text-brand-gold" />
+                  <span>{CONTACT.address[language]}</span>
                 </div>
               </div>
             </div>

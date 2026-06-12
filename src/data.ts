@@ -3,128 +3,151 @@ import { PracticeArea, OfficeLocation } from './types';
 export const NAV_ITEMS = [
   { id: 'hero', label: { en: 'Home', ar: 'الرئيسية' } },
   { id: 'about', label: { en: 'About Us', ar: 'من نحن' } },
-  { id: 'practices', label: { en: 'Practice Areas', ar: 'مجالات الاختصاص' } },
+  { id: 'practices', label: { en: 'Our Services', ar: 'خدماتنا' } },
   { id: 'contact', label: { en: 'Contact Us', ar: 'اتصل بنا' } }
+];
+
+// Real contact details from the Lex Insight company profile.
+export const CONTACT = {
+  phone: '+971 55 200 9082',
+  phoneHref: 'tel:+971552009082',
+  email: 'info@lexinsightlegal.com',
+  website: 'www.lexinsightlegal.com',
+  websiteUrl: 'https://www.lexinsightlegal.com',
+  linkedin: 'https://www.linkedin.com/company/lex-insight-legal',
+  address: {
+    en: 'Sharjah, United Arab Emirates',
+    ar: 'الشارقة، الإمارات العربية المتحدة'
+  }
+};
+
+// Core values drawn from the company profile ("Our Values").
+export const BRAND_VALUES = [
+  { id: 'quality', label: { en: 'Quality', ar: 'الجودة' } },
+  { id: 'efficiency', label: { en: 'Efficiency', ar: 'الكفاءة' } },
+  { id: 'confidentiality', label: { en: 'Confidentiality', ar: 'السرية' } },
+  { id: 'precision', label: { en: 'Precision', ar: 'الدقة' } },
+  { id: 'commitment', label: { en: 'Commitment', ar: 'الالتزام' } }
 ];
 
 export const PRACTICE_AREAS: PracticeArea[] = [
   {
-    id: 'corporate',
-    icon: 'Briefcase',
+    id: 'litigation',
+    icon: 'Gavel',
     title: {
-      en: 'Corporate & M&A',
-      ar: 'الشركات والاستحواذات'
+      en: 'Litigation & Advocacy',
+      ar: 'التقاضي والترافع'
     },
     shortDescription: {
-      en: 'Comprehensive business legal solutions including cross-border transactions, setup, and governance.',
-      ar: 'حلول قانونية شاملة للأعمال بما في ذلك المعاملات عابرة الحدود، التأسيس، والحوكمة.'
+      en: 'Representing clients before judicial and quasi-judicial bodies, defending their interests, and submitting legal memoranda.',
+      ar: 'تمثيل العملاء أمام الجهات القضائية وشبه القضائية والمرافعة والمدافعة وتقديم المذكرات.'
     },
     fullDescription: {
-      en: 'LexInsight Legal provides sophisticated strategic advice to corporations, startups, and private equity funds. We navigate clients through complex regulatory landscapes, multi-jurisdictional compliance, and structured M&A transactions with absolute commercial foresight.',
-      ar: 'تقدم ليكس إنسايت للاستشارات القانونية مشورة استراتيجية متطورة للشركات، الشركات الناشئة، وصناديق الاستثمار الخاص. نحن نقود عملاءنا عبر المشاهد التنظيمية المعقدة، والامتثال متعدد الولاية القضائية، وعمليات الدمج والاستحواذ المهيكلة ببعد نظر تجاري مطلق.'
+      en: 'Lex Insight represents clients before all courts across the UAE — whether in Dubai, the federal courts, or arbitration centers — drawing on more than fifteen years of practical courtroom experience. We defend our clients’ interests with clear, strategic advocacy and prepare and submit precise legal memoranda at every stage of the dispute.',
+      ar: 'تمثل ليكس إنسايت عملاءها أمام جميع المحاكم في الدولة سواء في دبي أو المحاكم الاتحادية أو مراكز التحكيم، بخبرة عملية تتجاوز خمسة عشر عاماً. ندافع عن مصالح عملائنا باستراتيجية واضحة ونعد ونقدم المذكرات القانونية الدقيقة في كل مرحلة من مراحل النزاع.'
     },
     features: {
       en: [
-        'Mergers & Acquisitions advisory',
-        'Corporate structuring and reorganization',
-        'Regulatory compliance and reporting',
-        'Joint ventures & shareholder agreements'
+        'Representation before courts and judicial committees',
+        'Quasi-judicial and arbitration proceedings',
+        'Defense and submission of legal memoranda',
+        'Dispute strategy and case management'
       ],
       ar: [
-        'تقديم الاستشارات في مجال عمليات الدمج والاستحواذ',
-        'هيكلة الشركات وإعادة تنظيمها',
-        'الامتثال التنظيمي وإعداد التقارير',
-        'المشاريع المشتركة واتفاقيات المساهمين'
+        'التمثيل أمام المحاكم واللجان القضائية',
+        'الإجراءات شبه القضائية والتحكيم',
+        'المدافعة وتقديم المذكرات القانونية',
+        'استراتيجية النزاع وإدارة القضايا'
       ]
     }
   },
   {
-    id: 'dispute',
-    icon: 'Scale',
+    id: 'consultations',
+    icon: 'MessagesSquare',
     title: {
-      en: 'Dispute Resolution & Litigation',
-      ar: 'فض النزاعات والتقاضي'
+      en: 'Legal Consultations',
+      ar: 'الاستشارات القانونية'
     },
     shortDescription: {
-      en: 'Strategic representation before local/federal courts and international arbitration tribunals.',
-      ar: 'تمثيل استراتيجي أمام المحاكم المحلية والاتحادية وهيئات التحكيم الدولية.'
+      en: 'Providing legal and Sharia consultations, studies, research, and specialized legal reports.',
+      ar: 'تقديم الاستشارات القانونية والشرعية والدراسات والأبحاث والتقارير القانونية المتخصصة.'
     },
     fullDescription: {
-      en: 'Our formidable dispute resolution practice handles high-stakes commercial litigation, investment disputes, and mediation. We aim to secure favorable results with clean strategies designed to minimize commercial disruption and protect corporate reputations.',
-      ar: 'يتعامل قسم فض النزاعات الهائل لدينا مع قضايا التقاضي التجاري عالية المخاطر، والنزاعات الاستثمارية، والوساطة. نحن نهدف إلى تحقيق نتائج مواتية باستراتيجيات واضحة مصممة لتقليل الاضطراب التجاري وحماية سمعة الشركات.'
+      en: 'We provide clear, modern legal and Sharia consultations supported by in-depth studies, research, and specialized legal reports. Our advice helps individuals and businesses understand their rights and obligations under UAE and international law and make confident, well-informed decisions.',
+      ar: 'نقدم استشارات قانونية وشرعية واضحة وعصرية مدعومة بالدراسات والأبحاث والتقارير القانونية المتخصصة. تساعد مشورتنا الأفراد والشركات على فهم حقوقهم والتزاماتهم وفق القوانين الإماراتية والدولية واتخاذ قرارات واثقة ومدروسة.'
     },
     features: {
       en: [
-        'Commercial litigation and advocacy',
-        'International commercial arbitration',
-        'White-collar defense & investigations',
-        'Pre-litigation risk mapping'
+        'Legal and Sharia consultations',
+        'Legal studies and research',
+        'Specialized legal reports',
+        'Regulatory and compliance advisory'
       ],
       ar: [
-        'التقاضي التجاري والمرافعة السليمة',
-        'التحكيم التجاري الدولي',
-        'الدفاع في الجرائم المالية والتحقيقات',
-        'رسم خرائط المخاطر قبل التقاضي'
+        'الاستشارات القانونية والشرعية',
+        'الدراسات والأبحاث القانونية',
+        'التقارير القانونية المتخصصة',
+        'الاستشارات التنظيمية والامتثال'
       ]
     }
   },
   {
-    id: 'ip',
-    icon: 'ShieldAlert',
+    id: 'contracts',
+    icon: 'FileSignature',
     title: {
-      en: 'Intellectual Property Security',
-      ar: 'حماية الملكية الفكرية'
+      en: 'Contract & Agreement Drafting',
+      ar: 'صياغة العقود والاتفاقيات'
     },
     shortDescription: {
-      en: 'Securing patents, trademarks, copyrights, and managing proprietary technological portfolios worldwide.',
-      ar: 'تأمين براءات الاختراع والعلامات التجارية وحقوق الطبع والنشر وإدارة محافظ التكنولوجيا عالمياً.'
+      en: 'Drafting, reviewing, and preparing contracts, agreements, and various legal documents.',
+      ar: 'إعداد وصياغة ومراجعة العقود والاتفاقيات والأوراق القانونية الأخرى باختلاف أنواعها.'
     },
     fullDescription: {
-      en: 'In an economy driven by technological innovation, protecting intellectual capital is paramount. We structure robust frameworks to shield your IP assets, handle strategic monetization, and lead powerful enforcement actions against infringers on global scales.',
-      ar: 'في اقتصاد يقوده الابتكار التكنولوجي، تعد حماية رأس المال الفكري أمراً بالغ الأهمية. نقوم بهيكلة أطر عمل قوية لحماية أصول الملكية الفكرية الخاصة بك، والتعامل مع تحقيق الدخل الاستراتيجي، وقيادة إجراءات إنفاذ قوية ضد المنتهكين على مستويات عالمية.'
+      en: 'Our team drafts, reviews, and prepares contracts, agreements, and legal documents of every type with precision and commercial awareness. We ensure each document protects your interests, reflects the parties’ intentions clearly, and remains fully compliant with applicable laws.',
+      ar: 'يقوم فريقنا بإعداد وصياغة ومراجعة العقود والاتفاقيات والأوراق القانونية بمختلف أنواعها بدقة ووعي تجاري. نحرص على أن تحمي كل وثيقة مصالحكم وتعبر بوضوح عن إرادة الأطراف وتظل متوافقة تماماً مع القوانين المعمول بها.'
     },
     features: {
       en: [
-        'Trademark & copyright registration',
-        'IP audit and portfolio management',
-        'Licensing, franchising, and tech-transfer',
-        'Patent prosecution and infringement claims'
+        'Drafting commercial and corporate contracts',
+        'Reviewing and revising agreements',
+        'Preparing legal documents and forms',
+        'Negotiation support and risk review'
       ],
       ar: [
-        'تسجيل العلامات التجارية وحقوق الطبع والنشر',
-        'تدقيق الملكية الفكرية وإدارة المحافظ',
-        'الترخيص والامتياز التجاري ونقل التكنولوجيا',
-        'مقاضاة انتهاك براءات الاختراع ومطالبات التعويض'
+        'صياغة العقود التجارية وعقود الشركات',
+        'مراجعة وتنقيح الاتفاقيات',
+        'إعداد المستندات والنماذج القانونية',
+        'دعم التفاوض ومراجعة المخاطر'
       ]
     }
   },
   {
-    id: 'finance',
-    icon: 'Coins',
+    id: 'memoranda',
+    icon: 'ScrollText',
     title: {
-      en: 'Banking & Islamic Finance',
-      ar: 'الخدمات المصرفية والتمويل الإسلامي'
+      en: 'Legal Memorandum Writing',
+      ar: 'كتابة المذكرات القانونية'
     },
     shortDescription: {
-      en: 'Tailored banking compliance and Shariah-compliant structuring of complex financial facilities.',
-      ar: 'امتثال مصرفي مخصص وهيكلة فريدة متوافقة مع الشريعة الإسلامية للتسهيلات المالية المعقدة.'
+      en: 'Drafting, writing, and submitting legal memoranda, pleadings, and briefs related to disputes.',
+      ar: 'صياغة وكتابة وتقديم المذكرات والصحف واللوائح القانونية المتعلقة بالنزاعات.'
     },
     fullDescription: {
-      en: 'Our elite banking division advises financial institutions and global corporates on conventional credit, asset-backed lending, and Shariah-compliant fund structures including Sukuk issuance and Murabaha financing.',
-      ar: 'يقدم قسم الخدمات المصرفية النخبة لدينا المشورة للمؤسسات المالية والشركات العالمية بشأن الائتمان التقليدي، والتمويل المضمون بالأصول، وهياكل الصناديق المتوافقة مع الشريعة الإسلامية بما في ذلك إصدار الصكوك وتمويل المرابحة.'
+      en: 'We draft, write, and submit legal memoranda, pleadings, and briefs related to disputes before judicial and quasi-judicial authorities. Each memorandum is built on a deep understanding of the case and the relevant law to present the strongest possible position for our clients.',
+      ar: 'نقوم بصياغة وكتابة وتقديم المذكرات والصحف واللوائح القانونية المتعلقة بالنزاعات المقامة أمام الجهات القضائية وشبه القضائية. تُبنى كل مذكرة على فهم عميق للقضية والقانون ذي الصلة لتقديم أقوى موقف ممكن لعملائنا.'
     },
     features: {
       en: [
-        'Shariah-compliant financial structuring',
-        'Sovereign and syndicated loan facilitation',
-        'Fintech licensing and digital asset regulations',
-        'Anti-money laundering compliance (AML/CFT)'
+        'Drafting memoranda and pleadings',
+        'Preparing statements of claim and defense',
+        'Submissions before judicial authorities',
+        'Quasi-judicial briefs and replies'
       ],
       ar: [
-        'الهيكلة المالية المتوافقة مع الشريعة الإسلامية',
-        'تسهيل القروض السيادية والمشتركة',
-        'ترخيص التكنولوجيا المالية وتنظيم الأصول الرقمية',
-        'الامتثال لمكافحة غسيل الأموال وتمويل الإرهاب'
+        'صياغة المذكرات واللوائح',
+        'إعداد صحف الدعوى والدفاع',
+        'التقديم أمام الجهات القضائية',
+        'المذكرات والردود شبه القضائية'
       ]
     }
   }
@@ -134,97 +157,115 @@ export const OFFICE_LOCATIONS: OfficeLocation[] = [];
 
 export const TRANSLATIONS = {
   en: {
-    firmName: 'LexInsight Legal',
-    tagline: 'Precision Counsel. Visionary Protection.',
-    taglineSub: 'Serving world-class enterprises with trusted counsel and sharp multi-jurisdictional strategies.',
+    firmName: 'Lex Insight Legal Consultancy',
+    firmShort: 'Lex Insight',
+    tagline: 'Modern Legal Solutions. Built on Trust.',
+    taglineSub: 'With over 15 years of experience in the UAE, Lex Insight delivers clear, strategic, and high-quality legal services for individuals and businesses.',
     arabic: 'العربية',
     english: 'English',
     languageName: 'العربية',
-    bookConsultation: 'Request Free Case Assessment',
-    learnMore: 'Explore Practice Areas',
-    ourOffices: 'Our Global Presence',
+    bookConsultation: 'Request a Consultation',
+    learnMore: 'Explore Our Services',
+    ourOffices: 'Reach Us',
     rightsReserved: 'All rights reserved.',
-    submitting: 'Securing Connection...',
-    submittedSuccess: 'Inquiry Registered Securely',
-    successMsg: 'Thank you. Your request is registered under high confidentiality guidelines. We will connect at your email or phone within 12 business hours.',
-    errorMsg: 'Submission encountered an issue. Please retry or contact info@lexinsightlegal.com directly.',
-    senderEmail: 'Sent To: info@lexinsightlegal.com',
+    submitting: 'Sending your request...',
+    submittedSuccess: 'Request Received',
+    successMsg: 'Thank you. Your request has been received in full confidentiality. One of our consultants will contact you by email or phone shortly.',
+    errorMsg: 'Submission encountered an issue. Please retry or contact us directly at info@lexinsightlegal.com.',
+    senderEmail: 'Sent to: info@lexinsightlegal.com',
     enquiryReceived: 'Enquiry Received',
     phone: 'Phone',
     email: 'Email',
     address: 'Address',
+    website: 'Website',
     office: 'Office',
-    practiceAreaLabel: 'Preferred Practice Area',
+    practiceAreaLabel: 'Service of Interest',
     fullName: 'Full Name',
-    emailPlaceholder: 'you@enterprise.com',
-    phonePlaceholder: '+1 (555) 000-0000',
+    emailPlaceholder: 'you@example.com',
+    phonePlaceholder: '+971 55 000 0000',
     companyOptional: 'Company (Optional)',
-    messageLabel: 'Brief context or inquiry description',
-    messagePlaceholder: 'Please outline the legal assistance or regulatory counsel you require...',
+    messageLabel: 'Brief description of your inquiry',
+    messagePlaceholder: 'Please outline the legal assistance or consultation you require...',
     mandatoryField: 'Required field',
-    selectPractice: 'Select Corporate Specialty',
-    trustBadges: 'Trust Credentials',
-    confidentialPromise: 'All transmissions are secured via end-to-end industry AES standard compliance and covered by Attorney-Client Privilege.',
-    practice_corporate: 'Corporate & M&A',
-    practice_dispute: 'Dispute Resolution & Litigation',
-    practice_ip: 'Intellectual Property Security',
-    practice_finance: 'Banking & Islamic Finance',
-    filterAll: 'All Legal Practices',
-    filterLabel: 'Practice focus:',
-    viewDetails: 'Review Framework',
-    close: 'Close Protocol',
-    aboutTitle: 'Sovereign Integrity. Tailor-Made Outcomes.',
-    aboutP1: 'Founded by senior commercial specialists, LexInsight Legal bridges the classic diligence of premium advocacy with the adaptive dynamics of 21st-century technology rules. We assist client organizations not only in containing legal exposure but in seizing regulatory structures as vital catalysts for growth.',
-    aboutP2: 'Our team of experienced lawyers and advisors ensures that whether you are structuring commercial business operations, navigating technology-driven legal landscapes, or resolving key corporate challenges, your organization is guided by legal excellence and sharp commercial foresight.',
+    selectPractice: 'Select a service',
+    trustBadges: 'Why Lex Insight',
+    confidentialPromise: 'All information you share is treated with strict confidentiality and professional privilege between consultant and client.',
+    practice_litigation: 'Litigation & Advocacy',
+    practice_consultations: 'Legal Consultations',
+    practice_contracts: 'Contract & Agreement Drafting',
+    practice_memoranda: 'Legal Memorandum Writing',
+    filterAll: 'All Services',
+    filterLabel: 'Filter services:',
+    viewDetails: 'View Details',
+    close: 'Close',
+    aboutTitle: 'A Specialized Legal Consultancy in the UAE',
+    aboutP1: 'Lex Insight is a specialized legal consultancy delivering clear, strategic, and high-quality legal solutions for individuals and businesses. Our team provides expertise in corporate law, contract drafting, dispute resolution, and regulatory compliance.',
+    aboutP2: 'We are committed to professionalism, confidentiality, and building long-term client partnerships grounded in trust and clarity. We continue to grow and evolve in the legal field by fully embracing technology to deliver precise, reliable results.',
     backToApp: 'Return to Homepage',
-    statusBadge: 'Secure Live Connection: info@lexinsightlegal.com',
-    aboutBadge: 'About the firm'
+    statusBadge: 'info@lexinsightlegal.com',
+    aboutBadge: 'Who We Are',
+    valuesTitle: 'Our Values',
+    visionTitle: 'Our Vision',
+    visionText: 'To stand among the leading global legal consultancy firms and become a distinguished, exemplary legal reference in the region.',
+    missionTitle: 'Our Mission',
+    missionText: 'To provide reliable legal protection and practical solutions using a modern, efficient approach supported by advanced digital tools and technology.',
+    servicesTitle: 'Our Services',
+    servicesSub: 'Practical legal services delivered with extensive experience across all courts in the United Arab Emirates.'
   },
   ar: {
     firmName: 'ليكس إنسايت للاستشارات القانونية',
-    tagline: 'مشورة دقيقة. حماية قانونية للمستقبل.',
-    taglineSub: 'خدمة الشركات العالمية الرائدة بمشورة موثوقة واستراتيجيات حادة متعددة الولايات القضائية.',
+    firmShort: 'ليكس إنسايت',
+    tagline: 'حلول قانونية عصرية. مبنية على الثقة.',
+    taglineSub: 'بخبرة تتجاوز 15 عاماً في دولة الإمارات، تقدم ليكس إنسايت خدمات قانونية واضحة واستراتيجية وعالية الجودة للأفراد والشركات.',
     arabic: 'العربية',
     english: 'English',
     languageName: 'English',
-    bookConsultation: 'طلب تقييم مجاني للقضية',
-    learnMore: 'استكشف مجالات الاختصاص',
-    ourOffices: 'حضورنا العالمي',
+    bookConsultation: 'اطلب استشارة',
+    learnMore: 'استكشف خدماتنا',
+    ourOffices: 'تواصل معنا',
     rightsReserved: 'جميع الحقوق محفوظة.',
-    submitting: 'جاري تأمين الاتصال الإلكتروني...',
-    submittedSuccess: 'تم تسجيل الاستفسار بأمان كامل',
-    successMsg: 'شكراً لك. تم تسجيل طلبك بموجب إرشادات السرية التامة لمهنة المحاماة. سيتواصل معك أحد مستشارينا عبر بريدك الإلكتروني أو هاتفك في غضون 12 ساعة عمل.',
-    errorMsg: 'واجه الإرسال مشكلة. يرجى إعادة المحاولة من جديد أو الاتصال بنا مباشرة عبر info@lexinsightlegal.com.',
+    submitting: 'جاري إرسال طلبك...',
+    submittedSuccess: 'تم استلام الطلب',
+    successMsg: 'شكراً لك. تم استلام طلبك بسرية تامة. سيتواصل معك أحد مستشارينا عبر بريدك الإلكتروني أو هاتفك في أقرب وقت.',
+    errorMsg: 'واجه الإرسال مشكلة. يرجى إعادة المحاولة أو التواصل معنا مباشرة عبر info@lexinsightlegal.com.',
     senderEmail: 'البريد المستلم: info@lexinsightlegal.com',
     enquiryReceived: 'تم استلام طلب جديد',
     phone: 'الهاتف',
     email: 'البريد الإلكتروني',
     address: 'العنوان',
+    website: 'الموقع الإلكتروني',
     office: 'المكتب',
-    practiceAreaLabel: 'مجال الاختصاص المطلوب',
+    practiceAreaLabel: 'الخدمة المطلوبة',
     fullName: 'الاسم الكامل',
-    emailPlaceholder: 'you@enterprise.com',
-    phonePlaceholder: '+966 55 000 0000',
+    emailPlaceholder: 'you@example.com',
+    phonePlaceholder: '+971 55 000 0000',
     companyOptional: 'الشركة (اختياري)',
-    messageLabel: 'سياق موجز أو وصف للاستفسار',
-    messagePlaceholder: 'يرجى تقديم تفاصيل قصيرة حول المساعدة القانونية المطلوبة أو الاستشارة التنظيمية...',
+    messageLabel: 'وصف موجز لاستفسارك',
+    messagePlaceholder: 'يرجى توضيح المساعدة القانونية أو الاستشارة التي تحتاجها...',
     mandatoryField: 'حقل مطلوب',
-    selectPractice: 'اختر الاختصاص القانوني المعني',
-    trustBadges: 'أوراق الاعتماد والمصداقية',
-    confidentialPromise: 'جميع البيانات المرسلة مشفرة ومعالجة وفقاً لأعلى معايير السرية المطلقة وامتياز الحصانة بين المحامي والموكل.',
-    practice_corporate: 'الشركات والاستحواذات',
-    practice_dispute: 'فض النزاعات والتقاضي',
-    practice_ip: 'حماية الملكية الفكرية',
-    practice_finance: 'الخدمات المصرفية والتمويل الإسلامي',
-    filterAll: 'كافة الاختصاصات القانونية',
-    filterLabel: 'فلترة الاختصاص:',
-    viewDetails: 'عرض إطار التفاصيل',
-    close: 'إغلاق نافذة البروتوكول',
-    aboutTitle: 'أعلى درجات النزاهة والاحتراف. نتائج قانونية مفصلة.',
-    aboutP1: 'تأسست شركة ليكس إنسايت للاستشارات القانونية على أيدي كبار الممارسين في مجال قانون الأعمال لتخدم بقوة وجدية احتياجات وتحديات القرن الحادي والعشرين. نحن لا نكتفي بالدفاع وتحجيم المخاطر، بل نسخر القوانين والتشريعات كحافز حقيقي لنمو وازدهار مشاريعكم.',
-    aboutP2: 'يضمن فريقنا من المحامين والشركاء ذوي الخبرة أنه سواء كنت بصدد هيكلة المعاملات التجارية للشركات، أو تقود المشاهد التنظيمية المعقدة، فستحصل على مشورة قانونية دقيقة وحلول مبتكرة تدعم أعمالكم بكفاءة تامة.',
+    selectPractice: 'اختر الخدمة',
+    trustBadges: 'لماذا ليكس إنسايت',
+    confidentialPromise: 'تُعامل جميع المعلومات التي تشاركها بسرية تامة وامتياز مهني بين المستشار والعميل.',
+    practice_litigation: 'التقاضي والترافع',
+    practice_consultations: 'الاستشارات القانونية',
+    practice_contracts: 'صياغة العقود والاتفاقيات',
+    practice_memoranda: 'كتابة المذكرات القانونية',
+    filterAll: 'جميع الخدمات',
+    filterLabel: 'فلترة الخدمات:',
+    viewDetails: 'عرض التفاصيل',
+    close: 'إغلاق',
+    aboutTitle: 'استشارات قانونية متخصصة في دولة الإمارات',
+    aboutP1: 'ليكس إنسايت شركة متخصصة في تقديم الاستشارات القانونية، حيث توفر حلولاً قانونية واضحة واستراتيجية وعالية الجودة للأفراد والشركات. يقدم فريقنا خبرته في قانون الشركات وصياغة العقود وحل النزاعات والامتثال التنظيمي.',
+    aboutP2: 'نلتزم بالاحترافية والسرية وبناء شراكات طويلة الأمد مع العملاء تقوم على الثقة والوضوح. ونواصل النمو والتطور في المجال القانوني من خلال الاعتماد الكامل على التقنية لتقديم نتائج دقيقة وموثوقة.',
     backToApp: 'العودة إلى الصفحة الرئيسية',
-    statusBadge: 'اتصال خادم آمن: info@lexinsightlegal.com',
-    aboutBadge: 'نبذة عن مكتب الاستشارة والخدمات'
+    statusBadge: 'info@lexinsightlegal.com',
+    aboutBadge: 'من نحن',
+    valuesTitle: 'قيمنا',
+    visionTitle: 'رؤيتنا',
+    visionText: 'أن نكون في مصاف شركات الاستشارات القانونية العالمية الرائدة، ونصبح مرجعاً قانونياً متميزاً ومثالياً في المنطقة.',
+    missionTitle: 'رسالتنا',
+    missionText: 'توفير الوقاية القانونية الموثوقة والحلول العملية وفق أسلوب عصري وفعّال مدعوم بأدوات وتقنيات رقمية حديثة.',
+    servicesTitle: 'خدماتنا',
+    servicesSub: 'خدمات قانونية عملية نقدمها بخبرة واسعة أمام جميع المحاكم في دولة الإمارات العربية المتحدة.'
   }
 };

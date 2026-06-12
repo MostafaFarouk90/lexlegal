@@ -1,7 +1,8 @@
 import { Language } from '../types';
 import { TRANSLATIONS, NAV_ITEMS } from '../data';
 import LanguageSelector from './LanguageSelector';
-import { Scale, Menu, X, Shield } from 'lucide-react';
+import Logo from './Logo';
+import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
 interface HeaderProps {
@@ -25,21 +26,17 @@ export default function Header({ language, onLanguageChange }: HeaderProps) {
     <header className="sticky top-0 w-full bg-brand-blue/95 backdrop-blur-md border-b border-brand-gold/20 z-40 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         {/* Brand Logo */}
-        <div 
+        <div
           onClick={() => handleScroll('hero')}
-          className="flex items-center gap-3 cursor-pointer group"
+          className="flex items-center cursor-pointer group"
+          aria-label={t.firmName}
         >
-          <div className="w-10 h-10 rounded-xl bg-brand-gold text-brand-blue flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shadow-md shadow-brand-gold/10">
-            <Scale className="w-5.5 h-5.5" />
-          </div>
-          <div>
-            <h1 className="text-xl font-bold text-white tracking-tight leading-none font-sans group-hover:text-brand-gold transition duration-200">
-              {t.firmName}
-            </h1>
-            <span className="text-[9px] font-mono tracking-wider font-bold text-brand-gold/75 uppercase block mt-1">
-              {language === 'en' ? 'Sovereign Integrity Counsel' : 'مشورة السيادة والنزاهة'}
-            </span>
-          </div>
+          <Logo
+            language={language}
+            variant="light"
+            heightClass="h-11 sm:h-12"
+            className="transition-transform duration-300 group-hover:scale-[1.03]"
+          />
         </div>
 
         {/* Desktop Navigation */}

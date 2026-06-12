@@ -1,13 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Inter", "Cairo", ui-sans-serif, system-ui, sans-serif;
-  --color-brand-blue: #0f172a;
-  --color-brand-navy: #1e293b;
-  --color-brand-gold: #c5a880;
-  --color-brand-gold-dark: #a98d65;
-  --color-brand-gold-light: #f5f0eb;
+  --font-display: "Cinzel", "Inter", serif;
+  /* Lex Insight brand palette: deep navy/charcoal + brushed brass gold + bronze. */
+  --color-brand-blue: #11182a;
+  --color-brand-navy: #1f2840;
+  --color-brand-gold: #c2a25e;
+  --color-brand-gold-dark: #9c7c3c;
+  --color-brand-gold-light: #f3ead7;
+  --color-brand-bronze: #5e4a2e;
 }
 
 body {

@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
 import { Language, PracticeArea } from '../types';
 import { PRACTICE_AREAS, TRANSLATIONS } from '../data';
-import { Briefcase, Scale, ShieldAlert, ShieldCheck, Coins, Users, ChevronRight, X, Sparkles } from 'lucide-react';
+import { Gavel, MessagesSquare, FileSignature, ScrollText, Scale, ChevronRight, X, Sparkles } from 'lucide-react';
 
 interface PracticeAreasProps {
   language: Language;
 }
 
 const IconMapper: Record<string, React.ComponentType<{ className?: string }>> = {
-  Briefcase,
+  Gavel,
+  MessagesSquare,
+  FileSignature,
+  ScrollText,
   Scale,
-  ShieldAlert,
-  ShieldCheck,
-  Coins,
-  Users,
 };
 
 export default function PracticeAreas({ language }: PracticeAreasProps) {
@@ -37,13 +36,11 @@ export default function PracticeAreas({ language }: PracticeAreasProps) {
             <Scale className="w-3.5 h-3.5" />
             <span>{t.learnMore}</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold font-sans text-brand-blue tracking-tight mb-4">
-            {language === 'en' ? 'Our Elite Practice Disciplines' : 'تخصصاتنا القانونية النخبوية'}
+          <h2 className="text-3xl md:text-4xl font-bold font-display text-brand-blue tracking-tight mb-4">
+            {t.servicesTitle}
           </h2>
           <p className="text-gray-500 text-lg leading-relaxed">
-            {language === 'en' 
-              ? 'Multi-disciplinary legal stewardship covering high-growth technologies and global commerce with extreme technical diligence.' 
-              : 'رعاية قانونية متعددة التخصصات تغطي مجالات التكنولوجيا سريعة النمو والتجارة العالمية بدقة فنية فائقة.'}
+            {t.servicesSub}
           </p>
         </div>
 
@@ -155,7 +152,7 @@ export default function PracticeAreas({ language }: PracticeAreasProps) {
               
               <h4 className="text-sm font-bold uppercase text-brand-navy tracking-wider mb-3 flex items-center gap-1.5">
                 <Sparkles className="w-4 h-4 text-brand-gold" />
-                <span>{language === 'en' ? 'Core Regulatory Vectors' : 'المحاور والمحددات التنظيمية'}</span>
+                <span>{language === 'en' ? 'What We Provide' : 'ما نقدمه'}</span>
               </h4>
               
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-gray-500 font-sans">

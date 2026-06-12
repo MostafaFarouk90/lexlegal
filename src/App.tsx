@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Language, ContactInquiry } from './types';
-import { TRANSLATIONS } from './data';
+import { TRANSLATIONS, CONTACT } from './data';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import AboutSection from './components/AboutSection';
 import PracticeAreas from './components/PracticeAreas';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
-import { MessageSquare, AlertCircle } from 'lucide-react';
+import { MessageSquare, Phone, Mail, MapPin, Globe, Linkedin } from 'lucide-react';
 
 export default function App() {
   const [language, setLanguage] = useState<Language>('en');
@@ -65,87 +65,76 @@ export default function App() {
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
               
-              {/* Left Column: Context guidelines */}
+              {/* Left Column: Contact details */}
               <div className="space-y-8">
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-brand-gold/10 text-brand-gold-dark text-xs font-semibold rounded-full uppercase tracking-wider">
                   <MessageSquare className="w-3.5 h-3.5" />
-                  <span>{language === 'en' ? 'Counsel Protocol' : 'بروتوكول الاستشارة الفورية'}</span>
+                  <span>{language === 'en' ? 'Contact Us' : 'اتصل بنا'}</span>
                 </div>
-                
-                <h2 className="text-3xl md:text-4xl font-bold text-brand-blue tracking-tight leading-tight">
-                  {language === 'en' 
-                    ? 'Register Your Case Under Legal Privilege'
-                    : 'سجل استفسارك القضائي بموجب الحصانة المهنية الكاملة'}
+
+                <h2 className="text-3xl md:text-4xl font-bold font-display text-brand-blue tracking-tight leading-tight">
+                  {language === 'en'
+                    ? "Let's discuss your legal needs"
+                    : 'لنتحدث عن احتياجاتك القانونية'}
                 </h2>
-                
+
                 <p className="text-gray-600 leading-relaxed text-lg">
                   {language === 'en'
-                    ? 'Submit details about your commercial litigation, intellectual property filings, or regulatory requirements. Our specialists monitor incoming files 24/7 to secure corporate interests.'
-                    : 'أرسل تفاصيل قضيتك أو متطلباتك التنظيمية في سرية تامة. يقوم المستشارون والخبراء بمراقبة الملفات الواردة ومعالجتها لتأمين المصالح الشاملة لشركائنا.'}
+                    ? 'Reach out for a consultation or send your inquiry using the form. Everything you share is treated in full confidentiality.'
+                    : 'تواصل معنا للحصول على استشارة أو أرسل استفسارك عبر النموذج. تُعامل جميع المعلومات التي تشاركها بسرية تامة.'}
                 </p>
 
-                {/* Secure pipeline explanation list */}
+                {/* Contact details list */}
                 <div className="space-y-4 pt-4 border-t border-gray-100">
-                  <div className="flex gap-4">
-                    <div className="w-8 h-8 rounded-full bg-brand-blue text-brand-gold flex items-center justify-center font-bold text-xs shrink-0 mt-1">
-                      1
+                  <a href={CONTACT.phoneHref} className="flex items-center gap-4 group">
+                    <div className="w-10 h-10 rounded-xl bg-brand-gold-light text-brand-gold-dark flex items-center justify-center shrink-0 group-hover:bg-brand-navy group-hover:text-brand-gold transition-colors">
+                      <Phone className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-brand-blue text-sm">
-                        {language === 'en' ? 'Immediate Triage' : 'فرز وتصنيف فوري'}
-                      </h4>
-                      <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">
-                        {language === 'en' 
-                          ? 'Incoming claims are directed strictly to practice area directors corresponding with the topic.' 
-                          : 'يتم تحويل الطلبات الواردة فوراً إلى القسم القانوني المتخصص بموضوع القضية.'}
-                      </p>
+                      <p className="text-[11px] font-bold uppercase tracking-wider text-gray-400">{TRANSLATIONS[language].phone}</p>
+                      <p className="text-sm font-semibold text-brand-blue group-hover:text-brand-gold-dark transition-colors" dir="ltr">{CONTACT.phone}</p>
+                    </div>
+                  </a>
+
+                  <a href={`mailto:${CONTACT.email}`} className="flex items-center gap-4 group">
+                    <div className="w-10 h-10 rounded-xl bg-brand-gold-light text-brand-gold-dark flex items-center justify-center shrink-0 group-hover:bg-brand-navy group-hover:text-brand-gold transition-colors">
+                      <Mail className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-bold uppercase tracking-wider text-gray-400">{TRANSLATIONS[language].email}</p>
+                      <p className="text-sm font-semibold text-brand-blue group-hover:text-brand-gold-dark transition-colors" dir="ltr">{CONTACT.email}</p>
+                    </div>
+                  </a>
+
+                  <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-brand-gold-light text-brand-gold-dark flex items-center justify-center shrink-0">
+                      <MapPin className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-bold uppercase tracking-wider text-gray-400">{TRANSLATIONS[language].address}</p>
+                      <p className="text-sm font-semibold text-brand-blue">{CONTACT.address[language]}</p>
                     </div>
                   </div>
 
-                  <div className="flex gap-4">
-                    <div className="w-8 h-8 rounded-full bg-brand-blue text-brand-gold flex items-center justify-center font-bold text-xs shrink-0 mt-1">
-                      2
+                  <a href={CONTACT.websiteUrl} target="_blank" rel="noreferrer" className="flex items-center gap-4 group">
+                    <div className="w-10 h-10 rounded-xl bg-brand-gold-light text-brand-gold-dark flex items-center justify-center shrink-0 group-hover:bg-brand-navy group-hover:text-brand-gold transition-colors">
+                      <Globe className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-brand-blue text-sm">
-                        {language === 'en' ? 'Confidential Assessment' : 'تقييم مجاني بالكامل خالي من الالتزامات'}
-                      </h4>
-                      <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">
-                        {language === 'en'
-                          ? 'The initial roadmap assessment and consultative feedback carry zero financial obligation.'
-                          : 'جلسة التقييم الاستراتيجية الأولية لا تطالب بأي التزامات مالية مسبقة.'}
-                      </p>
+                      <p className="text-[11px] font-bold uppercase tracking-wider text-gray-400">{TRANSLATIONS[language].website}</p>
+                      <p className="text-sm font-semibold text-brand-blue group-hover:text-brand-gold-dark transition-colors" dir="ltr">{CONTACT.website}</p>
                     </div>
-                  </div>
+                  </a>
 
-                  <div className="flex gap-4">
-                    <div className="w-8 h-8 rounded-full bg-brand-blue text-brand-gold flex items-center justify-center font-bold text-xs shrink-0 mt-1">
-                      3
+                  <a href={CONTACT.linkedin} target="_blank" rel="noreferrer" className="flex items-center gap-4 group">
+                    <div className="w-10 h-10 rounded-xl bg-brand-gold-light text-brand-gold-dark flex items-center justify-center shrink-0 group-hover:bg-brand-navy group-hover:text-brand-gold transition-colors">
+                      <Linkedin className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-brand-blue text-sm">
-                        {language === 'en' ? 'Strategic Desk Execution' : 'تنفيذ فوري عبر المكاتب الدولية'}
-                      </h4>
-                      <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">
-                        {language === 'en'
-                          ? 'Multi-hub execution guarantees continuous legal representation in both UK and Gulf centers.'
-                          : 'يضمن التنفيذ المزدوج استمرار المتابعة القانونية والمرافعة في المراكز البريطانية والخليجية.'}
-                      </p>
+                      <p className="text-[11px] font-bold uppercase tracking-wider text-gray-400">LinkedIn</p>
+                      <p className="text-sm font-semibold text-brand-blue group-hover:text-brand-gold-dark transition-colors">lex-insight-legal</p>
                     </div>
-                  </div>
-                </div>
-
-                {/* Secure email address notice */}
-                <div className="p-4 rounded-2xl bg-amber-50/50 border border-brand-gold/20 flex gap-3 text-brand-navy">
-                  <AlertCircle className="w-5 h-5 text-brand-gold shrink-0 mt-0.5" />
-                  <div className="text-xs space-y-1">
-                    <p className="font-bold">
-                      {language === 'en' ? 'Designated Secure Receiver Inbound' : 'البريد الإلكتروني المعتمد لتلقي الطلبات'}
-                    </p>
-                    <p className="text-slate-600 font-mono text-[11px]">
-                      info@lexinsightlegal.com
-                    </p>
-                  </div>
+                  </a>
                 </div>
               </div>
 

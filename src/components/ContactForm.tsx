@@ -16,7 +16,7 @@ export default function ContactForm({ language, onNewInquiry }: ContactFormProps
     email: '',
     phone: '',
     company: '',
-    practiceArea: 'corporate',
+    practiceArea: 'litigation',
     message: ''
   });
 
@@ -76,7 +76,7 @@ export default function ContactForm({ language, onNewInquiry }: ContactFormProps
         email: '',
         phone: '',
         company: '',
-        practiceArea: 'corporate',
+        practiceArea: 'litigation',
         message: ''
       });
 
@@ -101,12 +101,12 @@ export default function ContactForm({ language, onNewInquiry }: ContactFormProps
       </div>
 
       <h3 className="text-2xl font-bold text-brand-blue mb-2">
-        {language === 'en' ? 'Direct Attorney Counsel Protocol' : 'بروتوكول التواصل المباشر مع المستشارين'}
+        {language === 'en' ? 'Request a Consultation' : 'اطلب استشارة'}
       </h3>
       <p className="text-gray-500 text-sm leading-relaxed mb-8">
         {language === 'en'
-          ? 'Secure consultation system registered with corporate lawyers. All claims are processed instantly.'
-          : 'نظام الاستشارات الآمن الخاص بنخبة مستشاري الهيئة. كافة الطلبات تخضع للسرية المهنية الفورية.'}
+          ? 'Share a few details about your matter and one of our consultants will get back to you shortly.'
+          : 'شاركنا بعض التفاصيل حول قضيتك وسيتواصل معك أحد مستشارينا في أقرب وقت.'}
       </p>
 
       {success ? (
@@ -136,7 +136,7 @@ export default function ContactForm({ language, onNewInquiry }: ContactFormProps
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder={language === 'en' ? 'Alexander Sterling' : 'ألكسندر ستيرلينج'}
+                placeholder={language === 'en' ? 'e.g. Ahmed Al Mansoori' : 'مثال: أحمد المنصوري'}
                 className={`w-full px-4 py-3 rounded-xl border bg-slate-50 text-brand-blue text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-gold/40 transition duration-200 ${
                   errors.name ? 'border-red-400 ring-1 ring-red-100' : 'border-gray-200'
                 }`}
@@ -195,7 +195,7 @@ export default function ContactForm({ language, onNewInquiry }: ContactFormProps
                 name="company"
                 value={formData.company}
                 onChange={handleChange}
-                placeholder={language === 'en' ? 'Summit Holdings Group' : 'مجموعة قمة الخليج'}
+                placeholder={language === 'en' ? 'Your company name' : 'اسم شركتك'}
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-slate-50 text-brand-blue text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-gold/40 transition duration-200"
               />
             </div>
@@ -257,7 +257,7 @@ export default function ContactForm({ language, onNewInquiry }: ContactFormProps
               </>
             ) : (
               <>
-                <Send className={`w-4 h-4 ${language === 'ar' ? 'rotate-180' : ''}`} />
+                <Send className={`w-4 h-4 ${language === 'ar' ? '-scale-x-100' : ''}`} />
                 <span>{t.bookConsultation}</span>
               </>
             )}

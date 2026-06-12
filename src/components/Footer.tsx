@@ -1,6 +1,7 @@
 import { Language } from '../types';
-import { TRANSLATIONS } from '../data';
-import { Scale, ShieldCheck } from 'lucide-react';
+import { TRANSLATIONS, CONTACT } from '../data';
+import Logo from './Logo';
+import { Phone, Mail, MapPin, Globe, Linkedin } from 'lucide-react';
 
 interface FooterProps {
   language: Language;
@@ -12,30 +13,47 @@ export default function Footer({ language }: FooterProps) {
   return (
     <footer id="footer-section" className="bg-brand-blue text-slate-300 border-t border-brand-gold/30">
 
-      {/* Middle Footer: Brand and Disclaimer info */}
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-          
-          <div className="md:col-span-4 flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-brand-gold text-brand-blue flex items-center justify-center">
-              <Scale className="w-5 h-5" />
-            </div>
-            <div>
-              <h4 className="text-lg font-bold text-white tracking-tight">{t.firmName}</h4>
-              <p className="text-[10px] font-mono uppercase text-brand-gold/70">{t.tagline}</p>
-            </div>
+      {/* Middle Footer: Brand and contact info */}
+      <div className="max-w-7xl mx-auto px-6 py-14">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
+
+          {/* Brand block */}
+          <div className="md:col-span-5 space-y-5">
+            <Logo language={language} variant="light" heightClass="h-16" />
+            <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
+              {language === 'en'
+                ? 'Specialized legal consultancy serving individuals and businesses across the United Arab Emirates with over 15 years of practical experience.'
+                : 'استشارات قانونية متخصصة تخدم الأفراد والشركات في دولة الإمارات العربية المتحدة بخبرة عملية تتجاوز 15 عاماً.'}
+            </p>
           </div>
 
-          <div className="md:col-span-8 text-xs text-slate-400 leading-relaxed space-y-2 md:text-right">
-            <p>
-              {language === 'en'
-                ? 'LexInsight Legal Practice is structured as an alliance of legal advocates registered under regulatory authorities in active jurisdictions. Material displayed on this portal represents institutional capabilities and is not formal legal representation.'
-                : 'ليكس إنسايت للاستشارات القانونية مهيكلة كتحالف من الممثلين والمحامين المسجلين لدى السلطات التنظيمية في الولايات القضائية المعنية. المواد المعروضة على هذا الموقع تمثل القدرات المؤسسية ولا تشكل مشورة قانونية رسمية.'}
-            </p>
-            <p className="flex items-center gap-1.5 md:justify-end">
-              <ShieldCheck className="w-4 h-4 text-brand-gold" />
-              <span>{language === 'en' ? 'Attorney-Client Privilege Guarantee Secured' : 'ضمان الحصانة والسرية بين المحامي والعميل مؤمن بالكامل'}</span>
-            </p>
+          {/* Contact block */}
+          <div className="md:col-span-7">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-5">
+              {t.ourOffices}
+            </h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+              <a href={CONTACT.phoneHref} className="flex items-center gap-3 text-slate-300 hover:text-brand-gold transition">
+                <Phone className="w-4 h-4 text-brand-gold shrink-0" />
+                <span dir="ltr">{CONTACT.phone}</span>
+              </a>
+              <a href={`mailto:${CONTACT.email}`} className="flex items-center gap-3 text-slate-300 hover:text-brand-gold transition">
+                <Mail className="w-4 h-4 text-brand-gold shrink-0" />
+                <span dir="ltr">{CONTACT.email}</span>
+              </a>
+              <a href={CONTACT.websiteUrl} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-slate-300 hover:text-brand-gold transition">
+                <Globe className="w-4 h-4 text-brand-gold shrink-0" />
+                <span dir="ltr">{CONTACT.website}</span>
+              </a>
+              <a href={CONTACT.linkedin} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-slate-300 hover:text-brand-gold transition">
+                <Linkedin className="w-4 h-4 text-brand-gold shrink-0" />
+                <span>LinkedIn</span>
+              </a>
+              <div className="flex items-center gap-3 text-slate-300 sm:col-span-2">
+                <MapPin className="w-4 h-4 text-brand-gold shrink-0" />
+                <span>{CONTACT.address[language]}</span>
+              </div>
+            </div>
           </div>
 
         </div>
@@ -47,10 +65,11 @@ export default function Footer({ language }: FooterProps) {
           <p>
             © {new Date().getFullYear()} {t.firmName}. {t.rightsReserved}
           </p>
-          <div className="flex items-center gap-1.5">
-            <span>{language === 'en' ? 'Form destination secured:' : 'البريد المستلم المعتمد:'}</span>
-            <span className="font-mono text-brand-gold font-bold">info@lexinsightlegal.com</span>
-          </div>
+          <p className="text-slate-400 max-w-xl sm:text-right leading-relaxed">
+            {language === 'en'
+              ? 'The content of this website is provided for general information and does not constitute formal legal advice.'
+              : 'محتوى هذا الموقع مقدم لأغراض المعلومات العامة ولا يشكل مشورة قانونية رسمية.'}
+          </p>
         </div>
       </div>
 
