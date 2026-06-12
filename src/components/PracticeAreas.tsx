@@ -25,21 +25,21 @@ export default function PracticeAreas({ language }: PracticeAreasProps) {
     : PRACTICE_AREAS.filter(p => p.id === selectedCategory);
 
   return (
-    <section id="practices-section" className="py-24 bg-white border-t border-brand-gold/15 relative overflow-hidden">
+    <section id="practices-section" className="py-24 bg-brand-charcoal border-t border-white/5 relative overflow-hidden">
       {/* Decorative vector background */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-brand-gold-light/40 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-slate-100 rounded-full blur-3xl -z-10" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl -z-10" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -z-10" />
 
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-gold/10 text-brand-gold-dark text-xs font-semibold tracking-wider uppercase mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-gold/15 text-brand-gold text-xs font-semibold tracking-wider uppercase mb-4">
             <Scale className="w-3.5 h-3.5" />
             <span>{t.learnMore}</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold font-display text-brand-blue tracking-tight mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold font-display text-white tracking-tight mb-4">
             {t.servicesTitle}
           </h2>
-          <p className="text-gray-500 text-lg leading-relaxed">
+          <p className="text-slate-400 text-lg leading-relaxed">
             {t.servicesSub}
           </p>
         </div>
@@ -55,7 +55,7 @@ export default function PracticeAreas({ language }: PracticeAreasProps) {
             className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 cursor-pointer ${
               selectedCategory === 'all'
                 ? 'bg-brand-navy text-brand-gold shadow-md'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                : 'bg-white/10 text-slate-300 hover:bg-white/20'
             }`}
           >
             {t.filterAll}
@@ -68,7 +68,7 @@ export default function PracticeAreas({ language }: PracticeAreasProps) {
               className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 cursor-pointer ${
                 selectedCategory === p.id
                   ? 'bg-brand-navy text-brand-gold shadow-md'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  : 'bg-white/10 text-slate-300 hover:bg-white/20'
               }`}
             >
               {p.title[language]}

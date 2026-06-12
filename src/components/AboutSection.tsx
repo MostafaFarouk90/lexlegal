@@ -10,31 +10,31 @@ export default function AboutSection({ language }: AboutSectionProps) {
   const t = TRANSLATIONS[language];
 
   return (
-    <section id="about-section" className="py-24 bg-gray-50/50 border-t border-gray-100">
+    <section id="about-section" className="py-24 bg-brand-charcoal border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
 
           <div className="lg:col-span-6 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-gold/10 text-brand-gold-dark text-xs font-semibold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-gold/15 text-brand-gold text-xs font-semibold uppercase tracking-wider">
               <Gavel className="w-3.5 h-3.5" />
               <span>{t.aboutBadge}</span>
             </div>
 
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-brand-blue tracking-tight leading-tight">
+            <h2 className="text-3xl md:text-4xl font-bold font-display text-white tracking-tight leading-tight">
               {t.aboutTitle}
             </h2>
 
-            <p className="text-gray-600 text-lg leading-relaxed">
+            <p className="text-slate-300 text-lg leading-relaxed">
               {t.aboutP1}
             </p>
 
-            <p className="text-gray-500 text-base leading-relaxed">
+            <p className="text-slate-400 text-base leading-relaxed">
               {t.aboutP2}
             </p>
 
             {/* Core values */}
             <div className="pt-4">
-              <h3 className="text-xs font-bold uppercase tracking-widest text-brand-gold-dark mb-4 flex items-center gap-2">
+              <h3 className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-4 flex items-center gap-2">
                 <BadgeCheck className="w-4 h-4" />
                 <span>{t.valuesTitle}</span>
               </h3>
@@ -42,7 +42,7 @@ export default function AboutSection({ language }: AboutSectionProps) {
                 {BRAND_VALUES.map((v) => (
                   <span
                     key={v.id}
-                    className="px-4 py-2 rounded-full bg-white border border-brand-gold/30 text-sm font-semibold text-brand-navy shadow-sm"
+                    className="px-4 py-2 rounded-full bg-white/5 border border-brand-gold/30 text-sm font-semibold text-slate-100 shadow-sm"
                   >
                     {v.label[language]}
                   </span>

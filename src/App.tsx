@@ -40,7 +40,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#faf9f6] flex flex-col justify-between selection:bg-brand-gold/30">
+    <div className="min-h-screen bg-brand-charcoal flex flex-col justify-between selection:bg-brand-gold/30">
       
       {/* Sticky Bilingual Header Navigation */}
       <Header language={language} onLanguageChange={handleLanguageChange} />
@@ -58,41 +58,41 @@ export default function App() {
         <PracticeAreas language={language} />
 
         {/* Core Case / Inquiry Submission Section */}
-        <section id="contact-section" className="py-24 bg-white border-t border-brand-gold/15 relative">
-          
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(197,168,128,0.06),transparent_60%)] pointer-events-none" />
+        <section id="contact-section" className="py-24 bg-brand-charcoal-dark border-t border-brand-gold/15 relative">
+
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(197,168,128,0.08),transparent_60%)] pointer-events-none" />
 
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
               
               {/* Left Column: Contact details */}
               <div className="space-y-8">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-brand-gold/10 text-brand-gold-dark text-xs font-semibold rounded-full uppercase tracking-wider">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-brand-gold/15 text-brand-gold text-xs font-semibold rounded-full uppercase tracking-wider">
                   <MessageSquare className="w-3.5 h-3.5" />
                   <span>{language === 'en' ? 'Contact Us' : 'اتصل بنا'}</span>
                 </div>
 
-                <h2 className="text-3xl md:text-4xl font-bold font-display text-brand-blue tracking-tight leading-tight">
+                <h2 className="text-3xl md:text-4xl font-bold font-display text-white tracking-tight leading-tight">
                   {language === 'en'
                     ? "Let's discuss your legal needs"
                     : 'لنتحدث عن احتياجاتك القانونية'}
                 </h2>
 
-                <p className="text-gray-600 leading-relaxed text-lg">
+                <p className="text-slate-300 leading-relaxed text-lg">
                   {language === 'en'
                     ? 'Reach out for a consultation or send your inquiry using the form. Everything you share is treated in full confidentiality.'
                     : 'تواصل معنا للحصول على استشارة أو أرسل استفسارك عبر النموذج. تُعامل جميع المعلومات التي تشاركها بسرية تامة.'}
                 </p>
 
                 {/* Contact details list */}
-                <div className="space-y-4 pt-4 border-t border-gray-100">
+                <div className="space-y-4 pt-4 border-t border-white/10">
                   <a href={CONTACT.phoneHref} className="flex items-center gap-4 group">
                     <div className="w-10 h-10 rounded-xl bg-brand-gold-light text-brand-gold-dark flex items-center justify-center shrink-0 group-hover:bg-brand-navy group-hover:text-brand-gold transition-colors">
                       <Phone className="w-5 h-5" />
                     </div>
                     <div>
                       <p className="text-[11px] font-bold uppercase tracking-wider text-gray-400">{TRANSLATIONS[language].phone}</p>
-                      <p className="text-sm font-semibold text-brand-blue group-hover:text-brand-gold-dark transition-colors" dir="ltr">{CONTACT.phone}</p>
+                      <p className="text-sm font-semibold text-white group-hover:text-brand-gold transition-colors" dir="ltr">{CONTACT.phone}</p>
                     </div>
                   </a>
 
@@ -102,7 +102,7 @@ export default function App() {
                     </div>
                     <div>
                       <p className="text-[11px] font-bold uppercase tracking-wider text-gray-400">{TRANSLATIONS[language].email}</p>
-                      <p className="text-sm font-semibold text-brand-blue group-hover:text-brand-gold-dark transition-colors" dir="ltr">{CONTACT.email}</p>
+                      <p className="text-sm font-semibold text-white group-hover:text-brand-gold transition-colors" dir="ltr">{CONTACT.email}</p>
                     </div>
                   </a>
 
@@ -112,7 +112,7 @@ export default function App() {
                     </div>
                     <div>
                       <p className="text-[11px] font-bold uppercase tracking-wider text-gray-400">{TRANSLATIONS[language].address}</p>
-                      <p className="text-sm font-semibold text-brand-blue">{CONTACT.address[language]}</p>
+                      <p className="text-sm font-semibold text-white">{CONTACT.address[language]}</p>
                     </div>
                   </div>
 
@@ -122,7 +122,7 @@ export default function App() {
                     </div>
                     <div>
                       <p className="text-[11px] font-bold uppercase tracking-wider text-gray-400">{TRANSLATIONS[language].website}</p>
-                      <p className="text-sm font-semibold text-brand-blue group-hover:text-brand-gold-dark transition-colors" dir="ltr">{CONTACT.website}</p>
+                      <p className="text-sm font-semibold text-white group-hover:text-brand-gold transition-colors" dir="ltr">{CONTACT.website}</p>
                     </div>
                   </a>
 
@@ -132,7 +132,7 @@ export default function App() {
                     </div>
                     <div>
                       <p className="text-[11px] font-bold uppercase tracking-wider text-gray-400">LinkedIn</p>
-                      <p className="text-sm font-semibold text-brand-blue group-hover:text-brand-gold-dark transition-colors">lex-insight-legal</p>
+                      <p className="text-sm font-semibold text-white group-hover:text-brand-gold transition-colors">lex-insight-legal</p>
                     </div>
                   </a>
                 </div>

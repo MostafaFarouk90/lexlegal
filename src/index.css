@@ -11,12 +11,15 @@
   --color-brand-gold-dark: #9c7c3c;
   --color-brand-gold-light: #f3ead7;
   --color-brand-bronze: #5e4a2e;
+  /* Company-profile charcoal grays for page/section backgrounds. */
+  --color-brand-charcoal: #2b3139;
+  --color-brand-charcoal-dark: #242a31;
 }
 
 body {
   font-family: var(--font-sans);
-  background-color: #faf9f6;
-  color: #1e293b;
+  background-color: #2b3139;
+  color: #e2e8f0;
   -webkit-font-smoothing: antialiased;
 }
 
