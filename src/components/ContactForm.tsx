@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Language, ContactInquiry } from '../types';
 import { TRANSLATIONS, PRACTICE_AREAS } from '../data';
-import { Send, CheckCircle, ShieldCheck, HelpCircle } from 'lucide-react';
+import { supabase } from '../lib/supabase';
+import { Send, CheckCircle, ShieldCheck, HelpCircle, AlertCircle } from 'lucide-react';
 
 interface ContactFormProps {
   language: Language;
@@ -20,9 +21,13 @@ export default function ContactForm({ language, onNewInquiry }: ContactFormProps
     message: ''
   });
 
+  // Honeypot: bots fill hidden fields, humans never see them.
+  const [website, setWebsite] = useState('');
+
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
 
   const validate = () => {
     const freshErrors: Record<string, string> = {};
@@ -48,14 +53,41 @@ export default function ContactForm({ language, onNewInquiry }: ContactFormProps
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
+    // Silently drop bot submissions caught by the honeypot.
+    if (website.trim() !== '') {
+      setSuccess(true);
+      return;
+    }
+
+    // In production the backend must be configured, otherwise the request
+    // would be silently lost. Surface an error instead of a false success.
+    if (!supabase && import.meta.env.PROD) {
+      setSubmitError(true);
+      return;
+    }
+
     setSubmitting(true);
-    
-    // Simulate real security pipeline dispatch delay
-    setTimeout(() => {
+    setSubmitError(false);
+
+    try {
+      // Persist the request to Supabase (RLS allows insert only).
+      if (supabase) {
+        const { error } = await supabase.from('inquiries').insert({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company || null,
+          practice_area: formData.practiceArea,
+          message: formData.message
+        });
+        if (error) throw error;
+      }
+
+      // Keep a local copy too (used by the in-app inbox state).
       const newInquiry: ContactInquiry = {
         id: 'INQ-' + Math.floor(100000 + Math.random() * 900000),
         name: formData.name,
@@ -67,9 +99,8 @@ export default function ContactForm({ language, onNewInquiry }: ContactFormProps
         timestamp: new Date().toISOString(),
         status: 'new'
       };
-
       onNewInquiry(newInquiry);
-      setSubmitting(false);
+
       setSuccess(true);
       setFormData({
         name: '',
@@ -84,8 +115,12 @@ export default function ContactForm({ language, onNewInquiry }: ContactFormProps
       setTimeout(() => {
         setSuccess(false);
       }, 7000);
-
-    }, 1500);
+    } catch (err) {
+      console.error('Inquiry submission failed:', err);
+      setSubmitError(true);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -124,6 +159,25 @@ export default function ContactForm({ language, onNewInquiry }: ContactFormProps
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Honeypot — hidden from users, catches bots. */}
+          <input
+            type="text"
+            name="website"
+            value={website}
+            onChange={(e) => setWebsite(e.target.value)}
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="hidden"
+          />
+
+          {submitError && (
+            <div className="p-4 rounded-2xl bg-red-50 border border-red-200 text-red-800 flex gap-3 items-start">
+              <AlertCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
+              <p className="text-sm leading-relaxed">{t.errorMsg}</p>
+            </div>
+          )}
+
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {/* Full Name */}
             <div>

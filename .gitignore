@@ -6,3 +6,5 @@ coverage/
 *.log
 .env*
 !.env.example
+references/Company Profile- Lex Insight.pdf
+references/Company Profile- Lex Insight.html
