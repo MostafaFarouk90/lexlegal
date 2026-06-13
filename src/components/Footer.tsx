@@ -1,7 +1,7 @@
 import { Language } from '../types';
 import { TRANSLATIONS, CONTACT } from '../data';
 import Logo from './Logo';
-import { Phone, Mail, MapPin, Globe, Linkedin } from 'lucide-react';
+import { Phone, Mail, MapPin, Linkedin } from 'lucide-react';
 
 interface FooterProps {
   language: Language;
@@ -40,10 +40,6 @@ export default function Footer({ language }: FooterProps) {
               <a href={`mailto:${CONTACT.email}`} className="flex items-center gap-3 text-slate-300 hover:text-brand-gold transition">
                 <Mail className="w-4 h-4 text-brand-gold shrink-0" />
                 <span dir="ltr">{CONTACT.email}</span>
-              </a>
-              <a href={CONTACT.websiteUrl} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-slate-300 hover:text-brand-gold transition">
-                <Globe className="w-4 h-4 text-brand-gold shrink-0" />
-                <span dir="ltr">{CONTACT.website}</span>
               </a>
               <a href={CONTACT.linkedin} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-slate-300 hover:text-brand-gold transition">
                 <Linkedin className="w-4 h-4 text-brand-gold shrink-0" />

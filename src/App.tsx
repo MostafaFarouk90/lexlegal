@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Language, ContactInquiry } from './types';
-import { TRANSLATIONS, CONTACT } from './data';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import AboutSection from './components/AboutSection';
@@ -62,88 +61,31 @@ export default function App() {
 
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(197,168,128,0.08),transparent_60%)] pointer-events-none" />
 
-          <div className="max-w-7xl mx-auto px-6 relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-              
-              {/* Left Column: Contact details */}
-              <div className="space-y-8">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-brand-gold/15 text-brand-gold text-xs font-semibold rounded-full uppercase tracking-wider">
-                  <MessageSquare className="w-3.5 h-3.5" />
-                  <span>{language === 'en' ? 'Contact Us' : 'اتصل بنا'}</span>
-                </div>
+          <div className="max-w-2xl mx-auto px-6 relative z-10">
 
-                <h2 className="text-3xl md:text-4xl font-bold font-display text-white tracking-tight leading-tight">
-                  {language === 'en'
-                    ? "Let's discuss your legal needs"
-                    : 'لنتحدث عن احتياجاتك القانونية'}
-                </h2>
-
-                <p className="text-slate-300 leading-relaxed text-lg">
-                  {language === 'en'
-                    ? 'Reach out for a consultation or send your inquiry using the form. Everything you share is treated in full confidentiality.'
-                    : 'تواصل معنا للحصول على استشارة أو أرسل استفسارك عبر النموذج. تُعامل جميع المعلومات التي تشاركها بسرية تامة.'}
-                </p>
-
-                {/* Contact details list */}
-                <div className="space-y-4 pt-4 border-t border-white/10">
-                  <a href={CONTACT.phoneHref} className="flex items-center gap-4 group">
-                    <div className="w-10 h-10 rounded-xl bg-brand-gold-light text-brand-gold-dark flex items-center justify-center shrink-0 group-hover:bg-brand-navy group-hover:text-brand-gold transition-colors">
-                      <Phone className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <p className="text-[11px] font-bold uppercase tracking-wider text-gray-400">{TRANSLATIONS[language].phone}</p>
-                      <p className="text-sm font-semibold text-white group-hover:text-brand-gold transition-colors" dir="ltr">{CONTACT.phone}</p>
-                    </div>
-                  </a>
-
-                  <a href={`mailto:${CONTACT.email}`} className="flex items-center gap-4 group">
-                    <div className="w-10 h-10 rounded-xl bg-brand-gold-light text-brand-gold-dark flex items-center justify-center shrink-0 group-hover:bg-brand-navy group-hover:text-brand-gold transition-colors">
-                      <Mail className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <p className="text-[11px] font-bold uppercase tracking-wider text-gray-400">{TRANSLATIONS[language].email}</p>
-                      <p className="text-sm font-semibold text-white group-hover:text-brand-gold transition-colors" dir="ltr">{CONTACT.email}</p>
-                    </div>
-                  </a>
-
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-brand-gold-light text-brand-gold-dark flex items-center justify-center shrink-0">
-                      <MapPin className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <p className="text-[11px] font-bold uppercase tracking-wider text-gray-400">{TRANSLATIONS[language].address}</p>
-                      <p className="text-sm font-semibold text-white">{CONTACT.address[language]}</p>
-                    </div>
-                  </div>
-
-                  <a href={CONTACT.websiteUrl} target="_blank" rel="noreferrer" className="flex items-center gap-4 group">
-                    <div className="w-10 h-10 rounded-xl bg-brand-gold-light text-brand-gold-dark flex items-center justify-center shrink-0 group-hover:bg-brand-navy group-hover:text-brand-gold transition-colors">
-                      <Globe className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <p className="text-[11px] font-bold uppercase tracking-wider text-gray-400">{TRANSLATIONS[language].website}</p>
-                      <p className="text-sm font-semibold text-white group-hover:text-brand-gold transition-colors" dir="ltr">{CONTACT.website}</p>
-                    </div>
-                  </a>
-
-                  <a href={CONTACT.linkedin} target="_blank" rel="noreferrer" className="flex items-center gap-4 group">
-                    <div className="w-10 h-10 rounded-xl bg-brand-gold-light text-brand-gold-dark flex items-center justify-center shrink-0 group-hover:bg-brand-navy group-hover:text-brand-gold transition-colors">
-                      <Linkedin className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <p className="text-[11px] font-bold uppercase tracking-wider text-gray-400">LinkedIn</p>
-                      <p className="text-sm font-semibold text-white group-hover:text-brand-gold transition-colors">lex-insight-legal</p>
-                    </div>
-                  </a>
-                </div>
+            {/* Centered header */}
+            <div className="text-center space-y-5 mb-10">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-brand-gold/15 text-brand-gold text-xs font-semibold rounded-full uppercase tracking-wider">
+                <MessageSquare className="w-3.5 h-3.5" />
+                <span>{language === 'en' ? 'Contact Us' : 'اتصل بنا'}</span>
               </div>
 
-              {/* Right Column: Contact Us form */}
-              <div className="space-y-8">
-                <ContactForm language={language} onNewInquiry={handleNewInquiry} />
-              </div>
+              <h2 className="text-3xl md:text-4xl font-bold font-display text-white tracking-tight leading-tight">
+                {language === 'en'
+                  ? "Let's discuss your legal needs"
+                  : 'لنتحدث عن احتياجاتك القانونية'}
+              </h2>
 
+              <p className="text-slate-300 leading-relaxed text-lg">
+                {language === 'en'
+                  ? 'Reach out for a consultation or send your inquiry using the form. Everything you share is treated in full confidentiality.'
+                  : 'تواصل معنا للحصول على استشارة أو أرسل استفسارك عبر النموذج. تُعامل جميع المعلومات التي تشاركها بسرية تامة.'}
+              </p>
             </div>
+
+            {/* Contact Us form */}
+            <ContactForm language={language} onNewInquiry={handleNewInquiry} />
+
           </div>
         </section>
 
